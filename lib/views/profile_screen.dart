@@ -2,7 +2,8 @@
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key});
+  final String login;
+  const ProfileScreen({super.key, required this.login});
 
   @override
   Widget build(BuildContext context) {
@@ -11,9 +12,9 @@ class ProfileScreen extends StatelessWidget {
       body: Center(
         child: ElevatedButton(
           onPressed: () {
-            Navigator.pushNamed(context, '/');
+            Navigator.pushNamed(context, '/login');
           },
-          child: const Text('Go to Home'),
+          child: Text('Go to ${login}'),
         ),
       ),
     );

@@ -17,11 +17,30 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: '42 API Client',
       initialRoute: '/',
-      routes: {
-        '/': (context) => const InitScreen(),
-        '/home': (context) => HomeScreen(),
-        '/login': (context) => const LoginScreen(),
-        '/profile': (context) => const ProfileScreen(),
+        onGenerateRoute: (settings) {
+      final uri = Uri.parse(settings.name ?? '/');
+
+      if (uri.path == '/') {
+        return MaterialPageRoute(builder: (_) => const InitScreen());
+      }
+      if (uri.path == '/home') {
+        return MaterialPageRoute(builder: (_) => const HomeScreen());
+      }
+      if (uri.path == '/login') {
+        return MaterialPageRoute(builder: (_) => const LoginScreen());
+      }
+
+      if (uri.pathSegments.length == 2 && uri.pathSegments[0] == 'profile') {
+        final login = uri.pathSegments[1];
+        return MaterialPageRoute(
+          builder: (_) => ProfileScreen(login: login),
+        );
+      }
+      return MaterialPageRoute(
+        builder: (_) => const Scaffold(
+          body: Center(child: Text('404 - Page not found')),
+        ),
+      );
       },
     );
   }
