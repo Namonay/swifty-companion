@@ -13,11 +13,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void _handleInput(BuildContext context, String input) {
     // Replace with your desired logic
-    print("Input received: $input");
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('You entered: $input')),
+      SnackBar(content: Text('Checking profile of: $input')),
     );
-    Navigator.pushReplacementNamed(context, '/profile/${input}');
+    Navigator.pushReplacementNamed(context, '/profile/$input');
   }
   @override
   Widget build(BuildContext context) {
@@ -39,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   TextField(
                     controller: _controller,
                     decoration: const InputDecoration(
-                      hintText: 'Enter something...',
+                      hintText: 'Enter login',
                       border: OutlineInputBorder(),
                       filled: true,
                       fillColor: Colors.white70,
@@ -50,14 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     onPressed: () {
                       _handleInput(context, _controller.text);
                     },
-                    child: const Text('Submit Input'),
-                  ),
-                  const SizedBox(height: 20),
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/profile');
-                    },
-                    child: const Text('Go to Profile'),
+                    child: const Text('Submit'),
                   ),
                 ],
               ),

@@ -1,9 +1,11 @@
 
+
 import 'package:flutter/material.dart';
 import '../methods/api.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 Future<bool> initApp() async {
+  await dotenv.load();
   return await checkToken();
 }
 class InitScreen extends StatelessWidget {
@@ -25,7 +27,7 @@ class InitScreen extends StatelessWidget {
           switch (snapshot.connectionState)
           {
             case ConnectionState.waiting:
-              return Center(
+              return const Center(
                 child: Image(
                   image: AssetImage("assets/images/42_logo.png"),
                   width: 100,
@@ -53,7 +55,7 @@ class InitScreen extends StatelessWidget {
               Future.microtask(() {
               Navigator.pushReplacementNamed(context, '/login');
             });
-              return Center(
+              return const Center(
                   child: Text(
                       "Redirect"
                   )
