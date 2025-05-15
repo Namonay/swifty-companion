@@ -18,11 +18,17 @@ A clean and responsive Flutter app to look up 42 school students by their login,
 
 ### Home Screen
 
-![Home Screen](./assets/screenshots/home_screen.png)
+![image](https://github.com/user-attachments/assets/f52f0353-2be5-42d2-b497-4016a8074fc5)
+
 
 ### Profile Screen (Skills Tab)
 
-![Profile Skills](./assets/screenshots/profile_skills.png)
+![image](https://github.com/user-attachments/assets/e87302c8-7e16-4c53-a375-4f4e3ce4bf40)
+
+
+### Projects Screen
+
+![image](https://github.com/user-attachments/assets/511bdd68-0eb9-4f2b-9b38-33328b55f686)
 
 ---
 
