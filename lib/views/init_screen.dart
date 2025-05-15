@@ -47,10 +47,12 @@ class InitScreen extends StatelessWidget {
                     Navigator.pushReplacementNamed(context, '/login');
                   });
                 }
-              return Center(
-                child: Text(
-                    (snapshot.data == true) ? "1" : "0"
-                )
+              return const Center(
+                child: Image(
+                  image: AssetImage("assets/images/42_logo.png"),
+                  width: 100,
+                  height: 100,
+                ),
               );
             default:
               Future.microtask(() {
