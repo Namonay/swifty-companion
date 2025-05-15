@@ -6,6 +6,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 Future<bool> initApp() async {
   await dotenv.load();
+  await Future.delayed(const Duration(seconds : 2));
   return await checkToken();
 }
 class InitScreen extends StatelessWidget {

@@ -107,13 +107,19 @@ class ProfileScreen extends StatelessWidget {
                           itemCount: skills.length,
                           itemBuilder: (context, index) {
                             final skill = skills[index] as Map<String, dynamic>;
-                            return ListTile(
-                              title: Text(skill['name']),
-                              trailing: Text(
-                                skill['level'].toStringAsFixed(2),
-                                style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18,),
+                            final isEven = index % 2 == 0;
+
+                            return Container(
+                              color: isEven ? Colors.white70 : Colors.grey[200], // alternate row colors
+                              child: ListTile(
+                                title: Text(skill['name']),
+                                trailing: Text(
+                                  skill['level'].toStringAsFixed(2),
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18,
+                                  ),
+                                ),
                               ),
                             );
                           },
@@ -122,31 +128,36 @@ class ProfileScreen extends StatelessWidget {
                           itemCount: projects.length,
                           itemBuilder: (context, index) {
                             final project = projects[index] as Map<String, dynamic>;
+                            final isEven = index % 2 == 0;
+
                             Text project_grade;
                             if (project['final_mark'] == null) {
                               project_grade = const Text(
                                 'pending',
                                 style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black38,
-                                    fontSize: 18
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black38,
+                                  fontSize: 18,
                                 ),
                               );
-                            }
-                            else {
+                            } else {
                               var color = (project['validated?']) ? Colors.green : Colors.red;
                               project_grade = Text(
                                 project['final_mark'].toStringAsFixed(2),
                                 style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: color,
-                                    fontSize: 18
+                                  fontWeight: FontWeight.bold,
+                                  color: color,
+                                  fontSize: 18,
                                 ),
                               );
                             }
-                            return ListTile(
-                              title: Text(project['project']['name']),
-                              trailing: project_grade
+
+                            return Container(
+                              color: isEven ? Colors.white70 : Colors.grey[200],
+                              child: ListTile(
+                                title: Text(project['project']['name']),
+                                trailing: project_grade,
+                              ),
                             );
                           },
                         ),
