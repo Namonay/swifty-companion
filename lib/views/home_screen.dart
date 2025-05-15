@@ -41,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       hintText: 'Enter login',
                       border: OutlineInputBorder(),
                       filled: true,
-                      fillColor: Colors.white70,
+                      fillColor: Colors.white,
                     ),
                   ),
                   const SizedBox(height: 10),
