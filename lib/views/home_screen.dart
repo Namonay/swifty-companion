@@ -30,34 +30,76 @@ class _HomeScreenState extends State<HomeScreen> {
             'assets/images/cluster-photo-00.jpg',
             fit: BoxFit.cover,
           ),
+          Container(
+            color: Colors.black.withOpacity(0.4), // dim overlay
+          ),
           Center(
             child: Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.symmetric(horizontal: 24.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  TextField(
-                    controller: _controller,
-                    decoration: const InputDecoration(
-                      hintText: 'Enter login',
-                      border: OutlineInputBorder(),
-                      filled: true,
-                      fillColor: Colors.white,
+                  const Text(
+                    "🔍 Look up a 42 student",
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
                     ),
                   ),
-                  const SizedBox(height: 10),
-                  ElevatedButton(
-                    onPressed: () {
-                      _handleInput(context, _controller.text);
-                    },
-                    child: const Text('Submit'),
+                  const SizedBox(height: 24),
+                  TextField(
+                    controller: _controller,
+                    style: const TextStyle(color: Colors.black),
+                    decoration: InputDecoration(
+                      hintText: 'Enter login',
+                      filled: true,
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        _handleInput(context, _controller.text);
+                      },
+                      style: ElevatedButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(vertical: 14),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        backgroundColor: Colors.blueAccent,
+                      ),
+                      child: const Text(
+                        'Submit',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                    ),
                   ),
                 ],
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 12,
+            right: 12,
+            child: Text(
+              "Made by vvaas",
+              style: TextStyle(
+                color: Colors.white.withOpacity(0.7),
+                fontSize: 12,
+                fontStyle: FontStyle.italic,
               ),
             ),
           ),
         ],
       ),
     );
+
+
   }
 }
