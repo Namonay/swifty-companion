@@ -12,7 +12,8 @@ class _HomeScreenState extends State<HomeScreen> {
   final TextEditingController _controller = TextEditingController();
 
   void _handleInput(BuildContext context, String input) {
-    // Replace with your desired logic
+    final regex = RegExp(r'^[a-zA-Z\-]+$');
+    if (input.isEmpty || regex.hasMatch(input) == false) { return; }
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text('Checking profile of: $input')),
     );
